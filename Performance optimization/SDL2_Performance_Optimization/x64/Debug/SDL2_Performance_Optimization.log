@@ -1,0 +1,4 @@
+﻿  spike24_sdl2.cpp
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\24 - Spike - Profiling, Performance and Optimsation\SDL2_Performance_Optimization\spike24_sdl2.cpp(56,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\24 - Spike - Profiling, Performance and Optimsation\SDL2_Performance_Optimization\spike24_sdl2.cpp(56,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  SDL2_Performance_Optimization.vcxproj -> D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\24 - Spike - Profiling, Performance and Optimsation\SDL2_Performance_Optimization\x64\Debug\SDL2_Performance_Optimization.exe

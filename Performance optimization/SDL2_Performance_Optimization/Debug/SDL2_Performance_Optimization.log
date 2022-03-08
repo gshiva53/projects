@@ -1,0 +1,18 @@
+﻿  spike24_sdl2.cpp
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_GetError referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_CreateWindow referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_DestroyWindow referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_PollEvent referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_CreateRenderer referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_SetRenderDrawColor referenced in function "void __cdecl render_box(struct CrashBox,struct SDL_Renderer *,struct SDL_Color &)" (?render_box@@YAXUCrashBox@@PAUSDL_Renderer@@AAUSDL_Color@@@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_RenderClear referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_RenderFillRect referenced in function "void __cdecl render_box(struct CrashBox,struct SDL_Renderer *,struct SDL_Color &)" (?render_box@@YAXUCrashBox@@PAUSDL_Renderer@@AAUSDL_Color@@@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_RenderPresent referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_DestroyRenderer referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_GetTicks referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_Init referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+spike24_sdl2.obj : error LNK2019: unresolved external symbol _SDL_Quit referenced in function "int __cdecl run_test(char const *,void (__cdecl*)(void))" (?run_test@@YAHPBDP6AXXZ@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\dev\SDL2\lib\x64\SDL2.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\dev\SDL2\lib\x64\SDL2main.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\24 - Spike - Profiling, Performance and Optimsation\SDL2_Performance_Optimization\Debug\SDL2_Performance_Optimization.exe : fatal error LNK1120: 14 unresolved externals
