@@ -1,0 +1,40 @@
+6
+A
+Lorem Ipsum
+B
+Lorem Ipsum
+C
+Lorem Ipsum foo bar
+D
+Lorem Ipsum
+E
+Lorem Ipsum
+F
+Lorem Ipsum foo bar
+5
+A
+B
+south
+B
+D
+southeast
+C
+B
+northwest
+B
+B
+no
+E
+F
+west
+5
+rock
+a small plain rock plus added dust.
+nest
+a small birds nest made out of twigs and mud.
+eggs
+three small yellow eggs with brown dots.
+pond
+a medium sized pond.
+water
+pond water that is slightly green in color.
