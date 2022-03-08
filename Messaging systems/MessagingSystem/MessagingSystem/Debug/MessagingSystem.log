@@ -1,0 +1,8 @@
+﻿  Main.cpp
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(58,21): warning C4018: '<': signed/unsigned mismatch
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(72,21): warning C4018: '<': signed/unsigned mismatch
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(92,21): warning C4018: '<': signed/unsigned mismatch
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(67): warning C4715: 'BlackBoard::Read_StateMessage': not all control paths return a value
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(87): warning C4715: 'BlackBoard::Read_DataMessage': not all control paths return a value
+D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\BlackBoard.h(101): warning C4715: 'BlackBoard::Read_ResponseMessage': not all control paths return a value
+  MessagingSystem.vcxproj -> D:\Semester 2 2021\COS30031 - Games Programming\cos30031-102262514\19 - Spike - Messaging_ Annoucements and Blackboards\MessagingSystem\MessagingSystem\Debug\MessagingSystem.exe
