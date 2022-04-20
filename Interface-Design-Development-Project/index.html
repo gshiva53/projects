@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>
-        Insert title here
+        NASA APOD API
     </title>
     <!-- Metadata -->
     <meta charset="utf-8" />
@@ -19,17 +19,26 @@
             <!-- Row 1 -->
             <div class="row">
                 <div class="col-sm-12 border border-primary">
-                    <h1>Main heading!</h1>
+                    <h1>{{ apodResult.title }}</h1>
                 </div>
             </div>
             <!-- Row 2 -->
             <div class="row">
-                <!-- Row 2.1 -->
+                <div class="input-group input-group-sm mb-3 mt-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
+                    <input type="date" class="form-control" v-model="inputDate" @input="apiFetch(apiKey, inputDate)">
+                    <!-- Debug -->
+                    <!-- <p>{{ inputDate }}</p> -->
+                </div>
+            </div>
+            <!-- Row 3 -->
+            <div class="row">
+                <!-- Row 3.1 -->
                 <div class="row">
                     <div class="col-sm-4 border border-warning">
                         <!-- IF the error object does not contain an error object then show the result -->
                         <div v-if="error && !(error.error)">
-                            <h6>{{ apodResult.title }}</h6>
+                            <h6>{{ apodResult.date }}</h6>
                             <p>{{ apodResult.explanation }}</p>
                         </div>
                     </div>
@@ -59,27 +68,23 @@
                 </div>
             </div>
 
-
-            <!-- Bootstrap javascript plug-ins -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                crossorigin="anonymous"></script>
             <!-- Vue.js plug-ins -->
             <script src="https://unpkg.com/vue@3"></script>
             <script>
                 const app = {
                     data() {
                         return {
+                            apiKey: "tARTT0OeCAkt3TOHCOyvc6D2ZINWIbe86yOvKHa2", 
+                            inputDate: null, 
                             apodResult: {},
                             apodResults: [],
-                            error: null
+                            error: null, 
                         }
                     },
-                    beforeCreate() {
-                        const apiKey = "tARTT0OeCAkt3TOHCOyvc6D2ZINWIbe86yOvKHa2"
-
-                        fetch("https://api.nasa.gov/planetary/apod?" +
-                            "api_key=" + apiKey)
+                    methods: { 
+                        apiFetch(apiKey, inputDate) {
+                            fetch("https://api.nasa.gov/planetary/apod?" +
+                            "api_key=" + apiKey + "&date=" + inputDate)
                             .then(response => response.json())
                             .then(data => this.apodResult = data)
                             .then(error => {
@@ -87,6 +92,8 @@
                                 this.error = error
                                 console.log(error)
                             })
+                        }
+
                     }
                 }
 
