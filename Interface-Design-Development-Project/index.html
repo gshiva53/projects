@@ -20,11 +20,32 @@
             <div class="row">
                 <div class="col-12">
                     <h1>Main heading!</h1>
-                    <p>
-                        {{ testVar }}
-                    </p>
+                    <!-- IF the error object does not contain an error object then show the result -->
+                    <div v-if="error && !(error.error)">
+                        <h6>{{ apodResult.title }}</h6>
+                        <p>{{ apodResult.explanation }}</p>
+                        <!-- Display the image which links to the HD image -->
+                        <a :href="apodResult.hdurl">
+                            <img :src="apodResult.url" :alt="apodResult.title">
+                        </a>
+                    </div>
                 </div>
             </div>
+            <!-- Footer containing additional information and messages -->
+            <footer>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- IF error exists then it can either be the result or the error message -->
+                        <div v-if="error">
+                            <!-- IF error.error exists then it is definitely the error with the error code and message -->
+                            <div v-if="error.error">
+                                <strong>
+                                    <p>{{ error.error.code }}</p>
+                                </strong>
+                                <p>{{ error.error.message }}</p>
+                            </div>
+                        </div>
+            </footer>
         </div>
     </div>
 
@@ -39,8 +60,23 @@
         const app = {
             data() {
                 return {
-                    testVar: "something should be printed here"
+                    apodResult: {},
+                    apodResults: [],
+                    error: null
                 }
+            },
+            beforeCreate() {
+                const apiKey = "tARTT0OeCAkt3TOHCOyvc6D2ZINWIbe86yOvKHa2"
+
+                fetch("https://api.nasa.gov/planetary/apod?" +
+                    "api_key=" + apiKey)
+                    .then(response => response.json())
+                    .then(data => this.apodResult = data)
+                    .then(error => {
+                        //error.error contains the error code and the error message
+                        this.error = error
+                        console.log(error)
+                    })
             }
         }
 
