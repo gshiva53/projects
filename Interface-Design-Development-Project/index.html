@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="input-group input-group-sm mb-3 mt-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
-                    <input type="date" class="form-control" v-model="inputDate" @input="apiFetch(inputDate)" />
+                    <input type="date" class="form-control" v-model="inputDate" @input="apiFetch()" />
                     <!-- Debug -->
                     <!-- <p>{{ inputDate }}</p> -->
                 </div>
@@ -85,13 +85,13 @@
                 }
             },
             methods: {
-                apiFetch(inputDate) {
+                apiFetch() {
                     if (this.inputDate == null) {
                         console.log(inputDate)
                         this.yestardayDateAsInput()
                     } else {
                         fetch("https://api.nasa.gov/planetary/apod?" +
-                            "api_key=" + this.apiKey + "&date=" + inputDate)
+                            "api_key=" + this.apiKey + "&date=" + this.inputDate)
                             .then(response => response.json())
                             .then(data => this.apodResult = data)
                             .then(error => {
@@ -115,7 +115,7 @@
             },
             beforeMount() {
                 this.yestardayDateAsInput() 
-                this.apiFetch(this.inputDate)
+                this.apiFetch()
             }
         }
 
