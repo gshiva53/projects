@@ -30,33 +30,24 @@
                 </div>
             </div>
             <!-- Row 2 -->
-            <div class="row">
-                <!-- This div element will only exist if the data is NOT null, that is, if data is received while fetching the API -->
-                <div v-if="data">
-                    <!-- We can either take the length of the items array OR take the number of hits from metadata -->
-                    <div v-if="data.collection.metadata.total_hits > 0">
-                        <div v-for="(item, index) in data.collection.items" :key="index">
-                            <!-- <strong>ITEMS:</strong> {{ item }} -->
-                            <!-- <strong>ITEM DATA:</strong> {{ item.data }} -->
-                            <!-- <strong>ITEM LINK:</strong> {{ item.link }} -->
-                            <div v-for="(link, counter) in item.links" :key="counter">
-                                <!-- Data can either be accessed using the counter OR using nested for loops -->
-                                <!-- <img :src="link.href" alt="item.data[counter].title"> {{ item.data[counter].title }} -->
-
-                                <div class="row-cols-1 m-1">
-                                    <div class="col">
-                                        <div class="card h-100">
-                                            <div class="card">
-                                                <img :src="link.href" class="card-img-top"
-                                                    alt="item.data[counter].title">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ item.data[counter].title }}</h5>
-                                                    <p class="card-text">{{ item.data[counter].description }}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+            <!-- This div element will only exist if the data is NOT null, that is, if data is received while fetching the API -->
+            <div v-if="data">
+                <!-- We can either take the length of the items array OR take the number of hits from metadata -->
+                <div v-if="data.collection.metadata.total_hits > 0">
+                    <div v-for="(item, index) in data.collection.items" :key="index">
+                        <!-- <strong>ITEMS:</strong> {{ item }} -->
+                        <!-- <strong>ITEM DATA:</strong> {{ item.data }} -->
+                        <!-- <strong>ITEM LINK:</strong> {{ item.link }} -->
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 g-3 ">
+                                <!-- {{ item.links[0].href }} - {{ item.data[0].title }} : {{ item.data[0].description }} -->
+                                <!-- Card 1 -->
+                                <div class="card">
+                                    <img :src="item.links[0].href" class="card-img-top" alt="item.data[0].title">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ item.data[0].title }}</h5>
+                                        <p class="card-text">{{ item.data[0].description }}</p>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -68,6 +59,10 @@
 
     <!-- Vue.js plug-ins -->
     <script src="https://unpkg.com/vue@3"></script>
+    <!-- Vue Masonry plug-ins -->
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+        async></script>
     <script>
         const app = {
             data() {
