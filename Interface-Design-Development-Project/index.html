@@ -25,10 +25,9 @@
             </div>
             <!-- Row 2 -->
             <div class="row">
-                <p v-if="showEntryMessage">{{ entryMessage }}</p>
                 <div class="input-group input-group-sm mb-3 mt-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
-                    <input type="date" class="form-control" v-model="inputDate" @input="apiFetch(apiKey, inputDate)" />
+                    <input type="date" class="form-control" v-model="inputDate" @input="apiFetch(inputDate)" />
                     <!-- Debug -->
                     <!-- <p>{{ inputDate }}</p> -->
                 </div>
@@ -78,8 +77,6 @@
         const app = {
             data() {
                 return {
-                    entryMessage: "Please enter a date to show the API Result",
-                    showEntryMessage: false,
                     apiKey: "tARTT0OeCAkt3TOHCOyvc6D2ZINWIbe86yOvKHa2",
                     inputDate: null,
                     apodResult: {},
@@ -88,12 +85,13 @@
                 }
             },
             methods: {
-                apiFetch(apiKey, inputDate) {
+                apiFetch(inputDate) {
                     if (this.inputDate == null) {
-                        currentDateAsInput()
+                        console.log(inputDate)
+                        this.yestardayDateAsInput()
                     } else {
                         fetch("https://api.nasa.gov/planetary/apod?" +
-                            "api_key=" + apiKey + "&date=" + inputDate)
+                            "api_key=" + this.apiKey + "&date=" + inputDate)
                             .then(response => response.json())
                             .then(data => this.apodResult = data)
                             .then(error => {
@@ -102,13 +100,22 @@
                                 console.log(error)
                             })
                     }
-                }
-            },
-            computed: {
-                currentDateAsInput() {
-                    this.inputDate = new Date().toJSON().slice(0, 10)
+                },
+                yestardayDateAsInput() {
+                    console.log("calling the current date method")
+                    
+                    //To get yestarday's date we take today's date convert it into miliseconds and 
+                    //pass it into the date function to get yestarday's date. 
+                    const timeStamp = new Date().getTime() 
+                    const yestardayTimeStamp = timeStamp - 24*60*60*1000
+
+                    this.inputDate = new Date(yestardayTimeStamp).toJSON().slice(0, 10)
                     console.log(this.inputDate)
                 }
+            },
+            beforeMount() {
+                this.yestardayDateAsInput() 
+                this.apiFetch(this.inputDate)
             }
         }
 
