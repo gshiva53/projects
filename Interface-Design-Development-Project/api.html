@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        NASA APOD API
+        Image Library NASA API
     </title>
     <!-- Metadata -->
     <meta charset="utf-8" />
@@ -20,6 +20,32 @@
             <!-- Row 1 -->
             <div class="row">
                 <div class="col-sm-12 border border-primary">
+                    <div class="input-group input-group-sm mb-3 mt-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+                        <!-- When the search input changes then call the apiFetch() function -->
+                        <input type="text" class="form-control" v-model.lazy="search" @change="apiFetch()" />
+                        <!-- Debug -->
+                        <!-- <p>{{ search }}</p> -->
+                    </div>
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div>
+                <!-- <p><strong>DATA:</strong> {{ data }}</p> -->
+                <!-- <p v-if="data"><strong>COLLECTION:</strong> {{ data.collection }}</p> -->
+                <div v-if="data">
+                    <!-- We can either take the length of the items array OR take the number of hits from metadata -->
+                    <div v-if="data.collection.metadata.total_hits > 0">
+                        <div v-for="(item, index) in data.collection.items" :key="index" >
+                            <!-- <strong>ITEMS:</strong> {{ item }} -->
+                            <strong>ITEM DATA:</strong> {{ item.data }}
+                            <strong>ITEM LINK:</strong> {{ item.link }}
+                            <div v-for="(link, counter) in item.links" :key="counter">
+                                <!-- Data can either be accessed using the counter OR using nested for loops -->
+                                <img :src="link.href" alt="item.data[counter].title"> {{ item.data[counter].title }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,12 +57,26 @@
         const app = {
             data() {
                 return {
-                } 
+                    search: null,
+                    data: null,
+                    media_type: "image",
+                    page: "1"
+                }
+            },
+            methods: {
+                apiFetch() {
+                    fetch("https://images-api.nasa.gov" + "/search?q=" + this.search +
+                        "&media_type=" + this.media_type +
+                        "&page=" + this.page)
+                        .then(response => response.json())
+                        .then(data => this.data = data)
+                        .then(error => console.log(error))
+                }
             }
         }
 
         Vue.createApp(app)
-        .mount("#app")
+            .mount("#app")
     </script>
 </body>
 
