@@ -1,12 +1,15 @@
 <template>
   <apod></apod>
+  <hr>
+  <ivl></ivl>
 </template>
 
 <script>
 import apod from './components/apod.vue'
+import ivl from './components/ivl.vue'
 
 export default {
-  components: { apod }
+  components: { apod, ivl }
 }
 </script>
 
