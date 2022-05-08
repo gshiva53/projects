@@ -4,7 +4,10 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 //importing jquery 
 import 'jquery'
+
 //importing popper js 
 import '@popperjs/core'
 
-createApp(App).mount('#app')
+import router from './router'
+
+createApp(App).use(router).mount('#app')
