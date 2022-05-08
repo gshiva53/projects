@@ -1,5 +1,5 @@
 <template>
-  <div role="navigation" class="nav-container fixed-top">
+  <div role="navigation" class="nav-container">
     <nav
       class="navbar navbar-expand-lg navbar-light"
       style="background-color: #e3f2fd"
@@ -29,12 +29,4 @@ export default {};
 </script>
 
 <style>
-#navbar {
-  transform: translateY(-100%); /* normal, hidden state */
-  transition: transform .5s cubic-bezier(.4,0,.2,1);
-}
-
-.nav-container:hover #navbar {
-  transform: translateY(0); /* when parent is hovered */
-}
 </style>
