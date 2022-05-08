@@ -1,17 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
+import apodView from '@/views/apod/apodView.vue'
+import ivlView from '@/views/ivl/ivlView.vue'
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: AboutView
-  // }
+  {
+    path: '/',
+    name: 'apodView',
+    component: apodView
+  },
+  {
+    path: '/ivl',
+    name: 'ivlView',
+    component: ivlView
+  }
 ]
 
 const router = createRouter({
