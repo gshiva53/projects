@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-sm-4 border">
           <!-- IF the error object does not contain an error object then show the result -->
-          <div v-if="error && !error.error">
+          <div v-if="apodResult">
             <h6>{{ apodResult.date }}</h6>
             <p>{{ apodResult.explanation }}</p>
           </div>
@@ -42,20 +42,6 @@
                 />
               </a>
             </div>
-          </div>
-          <!-- Display the image which links to the HD image -->
-        </div>
-      </div>
-      <!-- Footer containing additional information and messages -->
-      <div class="col-sm-12 border">
-        <!-- IF error exists then it can either be the result or the error message -->
-        <div v-if="error">
-          <!-- IF error.error exists then it is definitely the error with the error code and message -->
-          <div v-if="error.error">
-            <strong>
-              <p>{{ error.error.code }}</p>
-            </strong>
-            <p>{{ error.error.message }}</p>
           </div>
         </div>
       </div>
