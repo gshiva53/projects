@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import apodView from '@/views/apod/apodView.vue'
-import ivlView from '@/views/ivl/ivlView.vue'
+import ApodView from '@/views/apod/ApodView.vue'
+import IvlView from '@/views/ivl/IvlView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'apodView',
-    component: apodView
+    name: 'ApodView',
+    component: ApodView
   },
   {
     path: '/ivl',
-    name: 'ivlView',
-    component: ivlView
+    name: 'IvlView',
+    component: IvlView
   }
 ]
 

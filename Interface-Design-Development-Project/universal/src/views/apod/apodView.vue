@@ -1,12 +1,12 @@
 <template>
-  <apod></apod>
+  <Apod></Apod>
 </template>
 
 <script>
-import apod from '@/components/apod.vue'
+import Apod from '@/components/Apod.vue'
 
 export default {
-    components: { apod }
+    components: { Apod }
 }
 </script>
 

@@ -1,12 +1,12 @@
 <template>
-  <ivl></ivl>
+  <Ivl></Ivl>
 </template>
 
 <script>
-import ivl from '@/components/ivl.vue'
+import Ivl from '@/components/Ivl.vue'
 
 export default {
-  components: { ivl },
+  components: { Ivl },
 
 }
 </script>

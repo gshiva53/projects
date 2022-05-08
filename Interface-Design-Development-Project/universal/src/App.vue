@@ -1,10 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">APOD</router-link> |
-    <router-link to="/ivl">IVL</router-link>
-  </nav>
-  <router-view/>
+<Navbar></Navbar>
+  <router-view class="mt-5"></router-view>
 </template>
+
+<script>
+import Navbar from '@/components/Navbar.vue'
+
+export default {
+  components: {
+    Navbar
+  }
+}
+
+</script>
+
 
 <style>
 #app {
