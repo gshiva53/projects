@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Row 1 -->
     <div class="row">
-      <div class="col-sm-12 border border-primary">
+      <div class="col-sm-12 border">
         <h1>{{ apodResult.title }}</h1>
       </div>
     </div>
@@ -24,14 +24,14 @@
     <div class="row">
       <!-- Row 3.1 -->
       <div class="row">
-        <div class="col-sm-4 border border-warning">
+        <div class="col-sm-4 border">
           <!-- IF the error object does not contain an error object then show the result -->
           <div v-if="error && !error.error">
             <h6>{{ apodResult.date }}</h6>
             <p>{{ apodResult.explanation }}</p>
           </div>
         </div>
-        <div class="col-sm-8 border border-danger">
+        <div class="col-sm-8 border">
           <div class="d-flex align-items-center">
             <div class="flex-grow-1 p-3">
               <a :href="apodResult.hdurl">
@@ -47,7 +47,7 @@
         </div>
       </div>
       <!-- Footer containing additional information and messages -->
-      <div class="col-sm-12 border border-secondary">
+      <div class="col-sm-12 border">
         <!-- IF error exists then it can either be the result or the error message -->
         <div v-if="error">
           <!-- IF error.error exists then it is definitely the error with the error code and message -->

@@ -3,7 +3,7 @@
   <div class="container">
     <!-- Row 1 -->
     <div class="row">
-      <div class="col-sm-12 border border-primary">
+      <div class="col-sm-12 border">
         <div class="input-group input-group-sm mb-3 mt-2">
           <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
           <!-- When the search input changes then call the apiFetch() function -->
