@@ -6,23 +6,14 @@
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Linkedin -->
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/gshiva53" role="button"
-          ><img
-            src="@\assets\Footer-icons\GitHub-icon.png"
-            alt="GitHub icon"
-            width="30"
-            height="30"
-        /></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/gshiva53" role="button"><img
+            src="@\assets\Footer-icons\GitHub-icon.png" alt="GitHub icon" width="30" height="30" /></a>
 
         <!-- Github -->
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/in/shiva-gupta-003613218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bp6RdyJ66Rkarw3ijmDib8Q%3D%3D" role="button"
-          ><img
-            src="@\assets\Footer-icons\linkedin-icon.png"
-            alt="Linkedin icon"
-            width="30"
-            height="30"
-          /></a
-        >
+        <a class="btn btn-outline-dark btn-floating m-1"
+          href="https://www.linkedin.com/in/shiva-gupta-003613218?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bp6RdyJ66Rkarw3ijmDib8Q%3D%3D"
+          role="button"><img src="@\assets\Footer-icons\linkedin-icon.png" alt="Linkedin icon" width="30"
+            height="30" /></a>
       </section>
       <!-- Section: Social media -->
 
@@ -44,9 +35,7 @@
               <!-- Email input -->
               <div class="form-outline form-black mb-4">
                 <input type="email" id="form5Example21" class="form-control" />
-                <label class="form-label" for="form5Example21"
-                  >Email address</label
-                >
+                <label class="form-label" for="form5Example21">Email address</label>
               </div>
             </div>
             <!--Grid column-->
@@ -85,9 +74,7 @@
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
-                <router-link class="nav-link" :to="{ name: 'ApodView' }"
-                  >APOD</router-link
-                >
+                <router-link class="nav-link" :to="{ name: 'ApodView' }">APOD</router-link>
               </li>
             </ul>
           </div>
@@ -97,9 +84,7 @@
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
-                <router-link class="nav-link" :to="{ name: 'IvlView' }"
-                  >IVL</router-link
-                >
+                <router-link class="nav-link" :to="{ name: 'IvlView' }">IVL</router-link>
               </li>
             </ul>
           </div>
@@ -109,9 +94,7 @@
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
-                <router-link class="nav-link" :to="{ name: 'IvlView' }"
-                  >IVL</router-link
-                >
+                <router-link class="nav-link" :to="{ name: 'IvlView' }">IVL</router-link>
               </li>
             </ul>
           </div>
@@ -120,9 +103,7 @@
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
-                <router-link class="nav-link" :to="{ name: 'ApodView' }"
-                  >APOD</router-link
-                >
+                <router-link class="nav-link" :to="{ name: 'ApodView' }">APOD</router-link>
               </li>
             </ul>
           </div>

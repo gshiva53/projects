@@ -10,12 +10,7 @@
     <div class="row">
       <div class="input-group input-group-sm mb-3 mt-2">
         <span class="input-group-text" id="inputGroup-sizing-sm">Date</span>
-        <input
-          type="date"
-          class="form-control"
-          v-model="inputDate"
-          @input="apiFetch()"
-        />
+        <input type="date" class="form-control" v-model="inputDate" @input="apiFetch()" />
         <!-- Debug -->
         <!-- <p>{{ inputDate }}</p> -->
       </div>
@@ -35,11 +30,7 @@
           <div class="d-flex align-items-center">
             <div class="flex-grow-1 p-3">
               <a :href="apodResult.hdurl">
-                <img
-                  :src="apodResult.url"
-                  :alt="apodResult.title"
-                  class="img-fluid p-2 rounded"
-                />
+                <img :src="apodResult.url" :alt="apodResult.title" class="img-fluid p-2 rounded" />
               </a>
             </div>
           </div>
@@ -68,10 +59,10 @@ export default {
       } else {
         fetch(
           "https://api.nasa.gov/planetary/apod?" +
-            "api_key=" +
-            this.apiKey +
-            "&date=" +
-            this.inputDate
+          "api_key=" +
+          this.apiKey +
+          "&date=" +
+          this.inputDate
         )
           .then((response) => response.json())
           .then((data) => (this.apodResult = data))
@@ -97,7 +88,7 @@ export default {
   beforeMount() {
     this.yestardayDateAsInput();
     this.apiFetch();
-  }
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-<Navbar></Navbar>
+  <Navbar></Navbar>
   <router-view class="mt-3"></router-view>
-  <Footer class="mt-3" ></Footer>
+  <Footer class="mt-3"></Footer>
 </template>
 
 <script>

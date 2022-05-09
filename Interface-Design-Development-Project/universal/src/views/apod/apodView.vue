@@ -6,10 +6,9 @@
 import Apod from '@/components/Apod.vue'
 
 export default {
-    components: { Apod }
+  components: { Apod }
 }
 </script>
 
 <style>
-
 </style>

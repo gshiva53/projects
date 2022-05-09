@@ -13,7 +13,7 @@ const routes = [
     path: '/ivl',
     name: 'IvlView',
     component: IvlView
-  }, 
+  },
   {
     path: '/about',
     name: 'AboutView',

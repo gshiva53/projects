@@ -17,9 +17,7 @@
         breathtaking our space really is and how organizations like NASA, ISRO
         can spread more awareness just by exposing the content, be that in the
         form of APIs. For more information about NASA APIs:
-        <a href="https://api.nasa.gov" alt="NASA APIs link"
-          >https://api.nasa.gov</a
-        >
+        <a href="https://api.nasa.gov" alt="NASA APIs link">https://api.nasa.gov</a>
       </p>
     </div>
     <div class="row">
