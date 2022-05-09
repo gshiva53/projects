@@ -1,14 +1,16 @@
 <template>
 <Navbar></Navbar>
   <router-view class="mt-3"></router-view>
+  <Footer></Footer>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar, Footer
   }
 }
 
