@@ -4,7 +4,6 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 //importing jquery 
 import 'jquery'
-
 //importing popper js 
 import '@popperjs/core'
 

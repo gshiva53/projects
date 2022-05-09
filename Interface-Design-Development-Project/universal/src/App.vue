@@ -1,7 +1,7 @@
 <template>
 <Navbar></Navbar>
   <router-view class="mt-3"></router-view>
-  <Footer></Footer>
+  <Footer class="mt-3" ></Footer>
 </template>
 
 <script>
@@ -22,7 +22,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 

@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Row 1 -->
     <div class="row">
-      <div class="col-sm-12 border">
+      <div class="col-sm-12 border text-center">
         <h1>{{ apodResult.title }}</h1>
       </div>
     </div>

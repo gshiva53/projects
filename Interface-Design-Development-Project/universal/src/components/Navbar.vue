@@ -20,6 +20,13 @@
             >IVL</router-link
           >
         </li>
+
+        <!-- About router link -->
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'AboutView' }"
+            >About</router-link
+          >
+        </li>
       </ul>
     </nav>
   </div>
