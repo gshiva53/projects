@@ -24,22 +24,21 @@ public class BugsDbTestApp {
     public static void main(String[] args) {
         BugsDbTestApp client = new BugsDbTestApp();
 
-//        //TEST: creating a record in the bug db
+        //TEST: creating a record in the bug db
 //        BugsDTO bugsDTO = new BugsDTO(00001, "npm fix", "npm package needs fixing", "fixing", "shiva", "high");
 //        boolean result = client.createRecord(bugsDTO);
 //        client.showCreateResult(result, bugsDTO);
-//
-//        //TEST: reading a record from the bug db
+        //TEST: reading a record from the bug db
 //        client.showGetResult(client.getRecord(00001));
-//
-//        //TEST: updating the record from the bug db
+
+        //TEST: updating the record from the bug db
 //        BugsDTO updatebugsDTO = new BugsDTO(00001, "npm fix", "npm package needs fixing", "fixing", "shiva", "medium");
 //        boolean updateresult = client.updateRecord(updatebugsDTO);
 //        client.showUpdateResult(updateresult, updatebugsDTO);
-        
-        //TEST: deleting the record from the bug db 
-        boolean deleteresult = client.deleteRecord(3);
-        client.showDeleteResult(deleteresult, 3); 
+
+//        //TEST: deleting the record from the bug db 
+        boolean deleteresult = client.deleteRecord(1);
+        client.showDeleteResult(deleteresult, 1); 
     }
 
     public void showCreateResult(boolean result, BugsDTO bugsDTO) {
@@ -54,7 +53,7 @@ public class BugsDbTestApp {
 
     //printing information from bugDTO
     public void showGetResult(BugsDTO bugDTO) {
-        System.out.println("ID; " + bugDTO.getBugid()
+        System.out.println("ID: " + bugDTO.getBugid()
                 + "\nName: " + bugDTO.getBugname()
                 + "\nDescription: " + bugDTO.getBugdesc()
                 + "\nStatus: " + bugDTO.getBugstatus()

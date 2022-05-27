@@ -9,8 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -20,7 +18,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author Shiva Gupta
- * This class represents the Bugs DB. This is an entity class. Refer to lab 03. 
  */
 @Entity
 @Table(name = "BUGS_DB")
@@ -37,7 +34,6 @@ public class BugsDb implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "BUGID")
     private Integer bugid;
@@ -63,7 +59,7 @@ public class BugsDb implements Serializable {
         this.bugid = bugid;
     }
 
-    public BugsDb(int bugid, String bugname, String bugstatus, String bugcreatedby, String bugpriority) {
+    public BugsDb(Integer bugid, String bugname, String bugstatus, String bugcreatedby, String bugpriority) {
         this.bugid = bugid;
         this.bugname = bugname;
         this.bugstatus = bugstatus;
@@ -71,7 +67,7 @@ public class BugsDb implements Serializable {
         this.bugpriority = bugpriority;
     }
 
-    public int getBugid() {
+    public Integer getBugid() {
         return bugid;
     }
 
