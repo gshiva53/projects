@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author Shiva Gupta
+ * This class represents the Bugs DB. This is an entity class. Refer to lab 03. 
  */
 @Entity
 @Table(name = "BUGS_DB")
@@ -62,7 +63,7 @@ public class BugsDb implements Serializable {
         this.bugid = bugid;
     }
 
-    public BugsDb(Integer bugid, String bugname, String bugstatus, String bugcreatedby, String bugpriority) {
+    public BugsDb(int bugid, String bugname, String bugstatus, String bugcreatedby, String bugpriority) {
         this.bugid = bugid;
         this.bugname = bugname;
         this.bugstatus = bugstatus;
@@ -70,7 +71,7 @@ public class BugsDb implements Serializable {
         this.bugpriority = bugpriority;
     }
 
-    public Integer getBugid() {
+    public int getBugid() {
         return bugid;
     }
 
