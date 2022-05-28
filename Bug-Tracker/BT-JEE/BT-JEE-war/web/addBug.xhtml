@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Add a Bug Page</title>
+    </h:head>
+    <h:body>
+        <h1>Add a user</h1>
+
+        <h2>
+            <p>Please enter the user's details below</p>
+        </h2>
+        <hr/> 
+        <h3>
+            <h:form>
+                <h:panelGrid columns="2"> 
+                    <h:outputText value="Bug Id: "/>
+                    <h:inputText id="bugid" value="#{bugsManagedBean.bugid}"
+                                 required="true"
+                                 requiredMessage="The bugid field cannot be empty!"/>
+
+                    <h:outputText value="Bug Name: "/>
+                    <h:inputText id="bugname" value="#{bugsManagedBean.bugname}"
+                                 required="true"
+                                 requiredMessage="The bugname field cannot be empty!"/>
+
+                    <h:outputText value="Bug Description: "/>
+                    <h:inputText id="bugdesc" value="#{bugsManagedBean.bugdesc}"
+                                 required="true"
+                                 requiredMessage="The bugdesc field cannot be empty!"/>
+
+                    <h:outputText value="Bug Status: "/>
+                    <h:inputText id="bugstatus" value="#{bugsManagedBean.bugstatus}"
+                                 required="true"
+                                 requiredMessage="The bugstatus field cannot be empty!"/>
+
+                    <h:outputText value="Bug Created by: "/>
+                    <h:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"
+                                 required="true"
+                                 requiredMessage="The bugcreatedby field cannot be empty!"/>
+
+                    <h:outputText value="Bug Priority: "/>
+                    <h:inputText id="bugpriority" value="#{bugsManagedBean.bugpriority}"
+                                 required="true"
+                                 requiredMessage="The bugpriority field cannot be empty!"/>
+                </h:panelGrid>
+
+                <br/>
+                <h:commandButton id="submit" value="Submit"
+                                 action="#{bugsManagedBean.addBug()}" />
+                <h:outputText value="#{bugsManagedBean.addBug()}" /> 
+            </h:form>
+        </h3>
+    </h:body>
+</html>
+
