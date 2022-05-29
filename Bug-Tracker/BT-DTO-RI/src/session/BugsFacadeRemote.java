@@ -7,6 +7,7 @@ package session;
 
 import javax.ejb.Remote;
 import entity.BugsDTO; 
+import java.util.ArrayList;
 
 /**
  *
@@ -18,4 +19,5 @@ public interface BugsFacadeRemote {
     public boolean updateRecord(BugsDTO bugDTO); 
     public boolean deleteRecord(int bugid); 
     public BugsDTO getRecord(int bugid);
+     public ArrayList<BugsDTO> getAllRecords(); 
 }

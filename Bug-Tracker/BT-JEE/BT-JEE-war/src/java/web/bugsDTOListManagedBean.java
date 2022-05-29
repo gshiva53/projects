@@ -7,18 +7,20 @@ package web;
 
 import entity.BugsDTO;
 import java.io.Serializable;
+import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.faces.view.ViewScoped;
 import session.BugsFacadeRemote;
 
 /**
  *
  * @author Shiva Gupta
  */
-@Named(value = "bugsManagedBean")
-@SessionScoped
-public class BugsManagedBean implements Serializable {
+@Named(value = "bugsDTOListManagedBean")
+@ViewScoped
+public class bugsDTOListManagedBean implements Serializable {
 
     @EJB
     private BugsFacadeRemote bugsFacade;
@@ -29,30 +31,16 @@ public class BugsManagedBean implements Serializable {
     private String bugstatus;
     private String bugcreatedby;
     private String bugpriority;
+    private ArrayList<BugsDTO> bugsDTOList;
 
-    /**
-     * Creates a new instance of BugsManagedBean
-     */
-    public BugsManagedBean() {
+    public bugsDTOListManagedBean() {
     }
-    
-    //wrapper method for returning a string result and 
-    //using the createRecord() method of facade SLSB. 
-    //Refer to lab05. 
-    public void addBug() {
-        
-        BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc, 
-        bugstatus, bugcreatedby, bugpriority); 
-        
-        boolean result = bugsFacade.createRecord(bugDTO); 
-        System.out.println("New bug has been added in the system: " 
-                + result 
-                + "\n" + bugid 
-                + "\n" + bugname);
-        
+
+    @PostConstruct
+    public void getAllRecords() {
+        bugsDTOList = bugsFacade.getAllRecords();
     }
-    
-    //BugsFacadeRemote getter and setter method
+
     public BugsFacadeRemote getBugsFacade() {
         return bugsFacade;
     }
@@ -60,8 +48,15 @@ public class BugsManagedBean implements Serializable {
     public void setBugsFacade(BugsFacadeRemote bugsFacade) {
         this.bugsFacade = bugsFacade;
     }
-    
-    //Field getter and setter methods
+
+    public ArrayList<BugsDTO> getBugsDTOList() {
+        return bugsDTOList;
+    }
+
+    public void setBugsDTOList(ArrayList<BugsDTO> bugsDTOList) {
+        this.bugsDTOList = bugsDTOList;
+    }
+
     public int getBugid() {
         return bugid;
     }
@@ -109,5 +104,4 @@ public class BugsManagedBean implements Serializable {
     public void setBugpriority(String bugpriority) {
         this.bugpriority = bugpriority;
     }
-
 }

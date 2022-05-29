@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
     </h:head>
 
     <h:body>
-        <p:spinner />
+        <h1>Bugs data table</h1>
+        <hr/>
+        <h:form>
+            <div class="card">
+                <p:dataTable var="bugDTO" value="#{bugsDTOListManagedBean.bugsDTOList}">
+                    <p:column headerText="ID">
+                        <h:outputText value="#{bugDTO.bugid}" />
+                    </p:column>
+
+                    <p:column headerText="Name">
+                        <h:outputText value="#{bugDTO.bugname}" />
+                    </p:column>
+
+                    <p:column headerText="Description">
+                        <h:outputText value="#{bugDTO.bugdesc}" />
+                    </p:column>
+
+                    <p:column headerText="Status">
+                        <h:outputText value="#{bugDTO.bugstatus}" />
+                    </p:column>
+                    
+                    <p:column headerText="Created by">
+                        <h:outputText value="#{bugDTO.bugcreatedby}" />
+                    </p:column>
+                    
+                    <p:column headerText="Priority">
+                        <h:outputText value="#{bugDTO.bugpriority}" />
+                    </p:column>
+                    
+                </p:dataTable>
+            </div>
+        </h:form>
     </h:body>
 </html>

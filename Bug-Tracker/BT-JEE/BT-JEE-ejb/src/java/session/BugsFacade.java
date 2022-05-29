@@ -7,6 +7,8 @@ package session;
 
 import entity.BugsDb;
 import entity.BugsDTO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,7 +27,7 @@ public class BugsFacade implements BugsFacadeRemote {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
+
     //Private CRUD operations 
     private void create(BugsDb bug) {
         em.persist(bug);
@@ -42,7 +44,7 @@ public class BugsFacade implements BugsFacadeRemote {
     private BugsDb find(Object id) {
         return em.find(BugsDb.class, id);
     }
-    
+
     //CRUD operations functionality exposed
     @Override
     public boolean createRecord(BugsDTO bugDTO) {
@@ -95,6 +97,20 @@ public class BugsFacade implements BugsFacadeRemote {
         return null;
     }
     
+    @Override 
+    public ArrayList<BugsDTO> getAllRecords() {
+        javax.persistence.Query query;
+        query = em.createNamedQuery("BugsDb.findAll");
+        List<BugsDb> bugs = query.getResultList();
+        ArrayList<BugsDTO> bugsDTO = new ArrayList<>(); 
+        
+        for (BugsDb bug : bugs) {
+            BugsDTO bugDTO = this.DAO2DTO(bug); 
+            bugsDTO.add(bugDTO); 
+        }
+        return bugsDTO; 
+    }
+
     //Information passing between the DAO and DTO
     private BugsDb DTO2DAO(BugsDTO bugsDTO) {
         BugsDb bug = new BugsDb();
