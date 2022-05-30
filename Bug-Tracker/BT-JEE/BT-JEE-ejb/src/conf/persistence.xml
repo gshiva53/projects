@@ -3,6 +3,7 @@
   <persistence-unit name="BT-JEE-ejbPU" transaction-type="JTA">
     <jta-data-source>jdbc/__default</jta-data-source>
     <class>entity.BugsDb</class>
+    <class>entity.MembersDb</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

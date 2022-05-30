@@ -30,9 +30,6 @@ public class BugsManagedBean implements Serializable {
     private String bugcreatedby;
     private String bugpriority;
 
-    /**
-     * Creates a new instance of BugsManagedBean
-     */
     public BugsManagedBean() {
     }
     

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Add a Member Page</title>
+    </h:head>
+    <h:body>
+        <h1>Add a Member</h1>
+
+        <h2>
+            <p>Please enter the members's details below</p>
+        </h2>
+        <hr/> 
+        <h3>
+            <h:form>
+                <h:panelGrid columns="2"> 
+                    <h:outputText value="Member Id: "/>
+                    <h:inputText id="membid" value="#{membersManagedBean.membid}"
+                                 required="true"
+                                 requiredMessage="The membid field cannot be empty!"/>
+
+                    <h:outputText value="Member Name: "/>
+                    <h:inputText id="membname" value="#{membersManagedBean.membname}"
+                                 required="true"
+                                 requiredMessage="The membname field cannot be empty!"/>
+
+                    <h:outputText value="Member Email:"/>
+                    <h:inputText id="membemail" value="#{membersManagedBean.membemail}"
+                                 required="true"
+                                 requiredMessage="The membemail field cannot be empty!"/>
+
+                    <h:outputText value="Member Role: "/>
+                    <h:inputText id="membrole" value="#{membersManagedBean.membrole}"
+                                 required="true"
+                                 requiredMessage="The membrole field cannot be empty!"/>
+
+                    <h:outputText value="Member Team: "/>
+                    <h:inputText id="membteam" value="#{membersManagedBean.membteam}"
+                                 required="true"
+                                 requiredMessage="The membteam field cannot be empty!"/>
+
+                    <h:outputText value="Member Password: "/>
+                    <h:inputText id="membpassword" value="#{membersManagedBean.membpassword}"
+                                 required="true"
+                                 requiredMessage="The membpassword field cannot be empty!"/>
+                </h:panelGrid>
+
+                <br/>
+                <h:commandButton id="submit" value="Submit"
+                                 action="#{membersManagedBean.addMember()}" />
+                <h:outputText value="#{membersManagedBean.addMember()}" /> 
+            </h:form>
+        </h3>
+    </h:body>
+</html>
+

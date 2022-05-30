@@ -7,8 +7,17 @@
     <enterprise-beans> 
         <session> 
             <ejb-name>BugsFacade</ejb-name> 
-            <remote>session.BugsFacadeRemote</remote> <!-- <local>session.MyuserFacadeLocal</local> --> 
+            <remote>session.BugsFacadeRemote</remote> 
             <ejb-class>session.BugsFacade</ejb-class> 
+            <session-type>Stateless</session-type> 
+            <transaction-type>Container</transaction-type> 
+        </session> 
+
+        <session> 
+
+            <ejb-name>MembersFacade</ejb-name> 
+            <remote>session.MembersFacadeRemote</remote>
+            <ejb-class>session.MembersFacade</ejb-class> 
             <session-type>Stateless</session-type> 
             <transaction-type>Container</transaction-type> 
         </session> 
