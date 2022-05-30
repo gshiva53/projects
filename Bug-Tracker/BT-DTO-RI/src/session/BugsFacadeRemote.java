@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package session;
 
 import javax.ejb.Remote;
@@ -12,6 +7,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Shiva Gupta
+ * Remote Interface class for Bugs DB class. 
  */
 @Remote
 public interface BugsFacadeRemote {
