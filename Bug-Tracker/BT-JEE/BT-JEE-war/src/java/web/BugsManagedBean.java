@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package web;
 
 import entity.BugsDTO;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import session.BugsFacadeRemote;
 
@@ -17,7 +13,7 @@ import session.BugsFacadeRemote;
  * @author Shiva Gupta
  */
 @Named(value = "bugsManagedBean")
-@SessionScoped
+@ViewScoped
 public class BugsManagedBean implements Serializable {
 
     @EJB
@@ -32,23 +28,31 @@ public class BugsManagedBean implements Serializable {
 
     public BugsManagedBean() {
     }
-    
+
     //wrapper method for returning a string result and 
     //using the createRecord() method of facade SLSB. 
     //Refer to lab05. 
     public void addBug() {
-        
-        BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc, 
-        bugstatus, bugcreatedby, bugpriority); 
-        
-        boolean result = bugsFacade.createRecord(bugDTO); 
-        System.out.println("New bug has been added in the system: " 
-                + result 
-                + "\n" + bugid 
-                + "\n" + bugname);
-        
+
+        BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc,
+                bugstatus, bugcreatedby, bugpriority);
+
+        boolean result = bugsFacade.createRecord(bugDTO);
+        System.out.println("New bug has been added in the system: "
+                + result
+                + "\n" + bugid
+                + "\n" + bugname
+                + "\n" + bugdesc
+                + "\n" + bugstatus
+                + "\n" + bugcreatedby
+                + "\n" + bugpriority);
+
     }
-    
+
+    public void doSomething() {
+        System.out.println("button is clicked...");
+    }
+
     //BugsFacadeRemote getter and setter method
     public BugsFacadeRemote getBugsFacade() {
         return bugsFacade;
@@ -57,7 +61,7 @@ public class BugsManagedBean implements Serializable {
     public void setBugsFacade(BugsFacadeRemote bugsFacade) {
         this.bugsFacade = bugsFacade;
     }
-    
+
     //Field getter and setter methods
     public int getBugid() {
         return bugid;

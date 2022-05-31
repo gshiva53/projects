@@ -7,89 +7,54 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Add a Bug</title>
-            <h:outputStylesheet name="css/primeflex/primeflex.css"/>
+        <h:outputStylesheet name="css/primeflex/primeflex.css"/>
     </h:head>
     <h:body>
         <composite:tabMenuComponent/>
-        <h1>Add a new Bug</h1>
-        <h3>
-            <div class="ui-fluid p-formgrid p-grid">
-                <div class="p-field p-col-12 p-md-6">
-                    <label for="firstname6">Firstname</label>
-                    <p:inputText id="firstname6" type="text" />
+        <h1 class="p-text-normal">Add a new Bug</h1>
+        <p:divider />
+
+        <h:form>
+            <div class="ui-fluid p-grid">
+                <div class=" p-col-12 p-md-4">
+                    <label for="bugid" class="p-text-normal">ID</label>
+                    <p:inputNumber id="bugid" value="#{bugsManagedBean.bugid}" required="true"
+                                   requiredMessage="The bugid field cannot be empty!" modifyValueOnWheel="false"/>
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <label for="lastname6">Lastname</label>
-                    <p:inputText id="lastname6" type="text" />
+                <div class=" p-col-12 p-md-8">
+                    <label for="bugname" class="p-text-normal">Name</label>
+                    <p:inputText id="bugname" value="#{bugsManagedBean.bugname}"/>
                 </div>
-                <div class="p-field p-col-12">
-                    <label for="address">Address</label>
-                    <p:inputTextarea id="address" rows="4" />
+                <div class=" p-col-12">
+                    <label for="bugdesc" class="p-text-normal">Description</label>
+                    <p:inputTextarea id="bugdesc" value="#{bugsManagedBean.bugdesc}" rows="4" />
                 </div>
-                <div class="p-field p-col-12 p-md-6">
-                    <label for="city">City</label>
-                    <p:inputText id="city" type="text" />
-                </div>
-                <div class="p-field p-col-12 p-md-3">
-                    <label for="state">State</label>
-                    <p:selectOneMenu id="state">
+                <div class=" p-col-12 p-md-3">
+                    <label for="bugstatus" class="p-text-normal">Status</label>
+                    <p:selectOneMenu id="bugstatus" value="#{bugsManagedBean.bugstatus}">
                         <f:selectItem itemLabel="Select" itemValue="" />
-                        <f:selectItem itemLabel="Arizona" itemValue="Arizona" />
-                        <f:selectItem itemLabel="California" itemValue="California" />
-                        <f:selectItem itemLabel="Florida" itemValue="Florida" />
-                        <f:selectItem itemLabel="Ohio" itemValue="Ohio" />
-                        <f:selectItem itemLabel="Washington" itemValue="Washington" />
+                        <f:selectItem itemLabel="To Be Fixed" itemValue="to be fixed" />
+                        <f:selectItem itemLabel="Fixing" itemValue="fixing" />
+                        <f:selectItem itemLabel="Fixed" itemValue="fixed" />
                     </p:selectOneMenu>
                 </div>
-                <div class="p-field p-col-12 p-md-3">
-                    <label for="zip">Zip</label>
-                    <p:inputText id="zip" type="text" />
+                <div class=" p-col-12 p-md-6">
+                    <label for="bugcreatedby" class="p-text-normal">Created By</label>
+                    <p:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"/>
+                </div>
+                <div class=" p-col-12 p-md-3">
+                    <label for="bugpriority" class="p-text-normal">Priority</label>
+                    <p:selectOneMenu id="bugpriority" value="#{bugsManagedBean.bugpriority}">
+                        <f:selectItem itemLabel="Select" itemValue="" />
+                        <f:selectItem itemLabel="Red" itemValue="red" />
+                        <f:selectItem itemLabel="Orange" itemValue="orange" />
+                        <f:selectItem itemLabel="Yellow" itemValue="yellow" />
+                        <f:selectItem itemLabel="Green" itemValue="green" />
+                    </p:selectOneMenu>
                 </div>
             </div>
-            <h:form>
-                <h:panelGrid columns="2"> 
-
-                    <p:outputLabel for="bugid" value="ID"/>
-                    <p:inputNumber id="bugid" value="#{inputNumberView.bugid}" required="true"
-                                   requiredMessage="The bugid field cannot be empty!" modifyValueOnWheel="false" />
-                    <!--
-                                        <h:outputText value="Bug Id: "/>
-                                        <h:inputText id="bugid" value="#{bugsManagedBean.bugid}"
-                                                     required="true"
-                                                     requiredMessage="The bugid field cannot be empty!"/>-->
-
-                    <h:outputText value="Bug Name: "/>
-                    <h:inputText id="bugname" value="#{bugsManagedBean.bugname}"
-                                 required="true"
-                                 requiredMessage="The bugname field cannot be empty!"/>
-
-                    <h:outputText value="Bug Description: "/>
-                    <h:inputText id="bugdesc" value="#{bugsManagedBean.bugdesc}"
-                                 required="true"
-                                 requiredMessage="The bugdesc field cannot be empty!"/>
-
-                    <h:outputText value="Bug Status: "/>
-                    <h:inputText id="bugstatus" value="#{bugsManagedBean.bugstatus}"
-                                 required="true"
-                                 requiredMessage="The bugstatus field cannot be empty!"/>
-
-                    <h:outputText value="Bug Created by: "/>
-                    <h:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"
-                                 required="true"
-                                 requiredMessage="The bugcreatedby field cannot be empty!"/>
-
-                    <h:outputText value="Bug Priority: "/>
-                    <h:inputText id="bugpriority" value="#{bugsManagedBean.bugpriority}"
-                                 required="true"
-                                 requiredMessage="The bugpriority field cannot be empty!"/>
-                </h:panelGrid>
-
-                <br/>
-                <h:commandButton id="submit" value="Submit"
-                                 action="#{bugsManagedBean.addBug()}" />
-                <h:outputText value="#{bugsManagedBean.addBug()}" /> 
-            </h:form>
-        </h3>
+            <p:commandButton value="Submit" action="#{bugsManagedBean.addBug}"/>
+        </h:form>
     </h:body>
 </html>
 
