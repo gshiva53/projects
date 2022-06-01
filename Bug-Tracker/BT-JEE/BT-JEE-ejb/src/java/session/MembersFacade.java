@@ -2,6 +2,8 @@ package session;
 
 import entity.MembersDTO;
 import entity.MembersDb;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -87,6 +89,20 @@ public class MembersFacade implements MembersFacadeRemote {
         }
         //if the memb with membid is NOT found 
         return null;
+    }
+
+    @Override
+    public ArrayList<MembersDTO> getAllRecords() {
+        javax.persistence.Query query;
+        query = em.createNamedQuery("MembersDb.findAll");
+        List<MembersDb> members = query.getResultList();
+        ArrayList<MembersDTO> membersDTO  = new ArrayList<>();
+
+        for (MembersDb member : members) {
+            MembersDTO membDTO = this.DAO2DTO(member);
+            membersDTO.add(membDTO);
+        }
+        return membersDTO ;
     }
 
     //information passing between DAO and DTO 

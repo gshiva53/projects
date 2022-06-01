@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite/template">
+
+    <h:head>
+    </h:head>
+
+    <h:body>
+        <composite:megaMenuComponent />
+        <h1 class="p-text-normal">Members Data Table</h1>
+        <h:form>
+            <div class="card">
+                <p:dataTable var="memberDTO" value="#{membersDTOListManagedBean.membDTOList}">
+                    <p:column headerText="ID">
+                        <h:outputText value="#{memberDTO.membid}" />
+                    </p:column>
+
+                    <p:column headerText="Name">
+                        <h:outputText value="#{memberDTO.membname}" />
+                    </p:column>
+
+                    <p:column headerText="Email">
+                        <h:outputText value="#{memberDTO.membemail}" />
+                    </p:column>
+
+                    <p:column headerText="Role">
+                        <h:outputText value="#{memberDTO.membrole}" />
+                    </p:column>
+                    
+                    <p:column headerText="Team">
+                        <h:outputText value="#{memberDTO.membteam}" />
+                    </p:column>
+                    
+                    <p:column headerText="Password">
+                        <h:outputText value="#{memberDTO.membpassword}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
