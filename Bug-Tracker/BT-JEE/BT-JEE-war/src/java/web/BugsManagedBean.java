@@ -3,7 +3,6 @@ package web;
 import entity.BugsDTO;
 import java.io.Serializable;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import session.BugsFacadeRemote;
@@ -49,8 +48,15 @@ public class BugsManagedBean implements Serializable {
 
     }
 
-    public void doSomething() {
-        System.out.println("button is clicked...");
+    public void updateBug() {
+        BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc,
+                bugstatus, bugcreatedby, bugpriority);
+
+        bugsFacade.updateRecord(bugDTO);
+    }
+    
+    public void deleteBug() {
+        bugsFacade.deleteRecord(bugid); 
     }
 
     //BugsFacadeRemote getter and setter method
