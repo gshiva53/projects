@@ -16,23 +16,33 @@
         <p:divider />
 
         <h:form>
+            <p:messages >
+                <p:autoUpdate/>
+            </p:messages>
             <div class="ui-fluid p-grid">
                 <div class=" p-col-12 p-md-4">
                     <label for="bugid" class="p-text-normal">ID</label>
-                    <p:inputNumber id="bugid" value="#{bugsManagedBean.bugid}" required="true"
-                                   requiredMessage="The bugid field cannot be empty!" modifyValueOnWheel="false"/>
+                    <p:inputNumber id="bugid" value="#{bugsManagedBean.bugid}" required="true" modifyValueOnWheel="false"/>
                 </div>
                 <div class=" p-col-12 p-md-8">
                     <label for="bugname" class="p-text-normal">Name</label>
-                    <p:inputText id="bugname" value="#{bugsManagedBean.bugname}"/>
+                    <p:inputText id="bugname" value="#{bugsManagedBean.bugname}"
+                                 validatorMessage="Name: letters and alphabets are required">
+                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                    </p:inputText>
                 </div>
                 <div class=" p-col-12">
                     <label for="bugdesc" class="p-text-normal">Description</label>
-                    <p:inputTextarea id="bugdesc" value="#{bugsManagedBean.bugdesc}" rows="4" />
+                    <p:inputTextarea id="bugdesc" value="#{bugsManagedBean.bugdesc}" rows="4" 
+                                     validatorMessage="Description: letters and numbers are required" >
+                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                    </p:inputTextarea>
                 </div>
                 <div class=" p-col-12 p-md-3">
                     <label for="bugstatus" class="p-text-normal">Status</label>
-                    <p:selectOneMenu id="bugstatus" value="#{bugsManagedBean.bugstatus}">
+                    <p:selectOneMenu id="bugstatus" value="#{bugsManagedBean.bugstatus}"
+                                     required="true"
+                                     requiredMessage="Status: Value is required.">
                         <f:selectItem itemLabel="Select" itemValue="" />
                         <f:selectItem itemLabel="To Be Fixed" itemValue="to be fixed" />
                         <f:selectItem itemLabel="Fixing" itemValue="fixing" />
@@ -41,11 +51,16 @@
                 </div>
                 <div class=" p-col-12 p-md-6">
                     <label for="bugcreatedby" class="p-text-normal">Created By</label>
-                    <p:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"/>
+                    <p:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"
+                                 validatorMessage="Created by:  letters and numbers are required" >
+                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                    </p:inputText>
                 </div>
                 <div class=" p-col-12 p-md-3">
                     <label for="bugpriority" class="p-text-normal">Priority</label>
-                    <p:selectOneMenu id="bugpriority" value="#{bugsManagedBean.bugpriority}">
+                    <p:selectOneMenu id="bugpriority" value="#{bugsManagedBean.bugpriority}"
+                                     required="true"
+                                     requiredMessage="Priority: Value is required.">
                         <f:selectItem itemLabel="Select" itemValue="" />
                         <f:selectItem itemLabel="Red" itemValue="red" />
                         <f:selectItem itemLabel="Orange" itemValue="orange" />
@@ -54,7 +69,7 @@
                     </p:selectOneMenu>
                 </div>
             </div>
-            <p:commandButton value="Update" action="#{bugsManagedBean.updateBug}"/>
+            <p:commandButton value="Update" ajax="false" validateClient="true" action="#{bugsManagedBean.updateBug}"/>
         </h:form>
     </h:body>
 </html>

@@ -3,6 +3,8 @@ package web;
 import entity.BugsDTO;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import session.BugsFacadeRemote;
@@ -35,28 +37,31 @@ public class BugsManagedBean implements Serializable {
 
         BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc,
                 bugstatus, bugcreatedby, bugpriority);
-
-        boolean result = bugsFacade.createRecord(bugDTO);
-        System.out.println("New bug has been added in the system: "
-                + result
-                + "\n" + bugid
-                + "\n" + bugname
-                + "\n" + bugdesc
-                + "\n" + bugstatus
-                + "\n" + bugcreatedby
-                + "\n" + bugpriority);
-
+        
+        if (bugsFacade.createRecord(bugDTO)) {
+            this.info("Bug added");
+        } else {
+            this.error("Bug NOT added"); 
+        }
     }
 
     public void updateBug() {
         BugsDTO bugDTO = new BugsDTO(bugid, bugname, bugdesc,
                 bugstatus, bugcreatedby, bugpriority);
 
-        bugsFacade.updateRecord(bugDTO);
+        if(bugsFacade.updateRecord(bugDTO)) {
+            this.info("Bug updated");
+        } else {
+            this.error("Bug NOT updated"); 
+        }
     }
-    
+
     public void deleteBug() {
-        bugsFacade.deleteRecord(bugid); 
+        if(bugsFacade.deleteRecord(bugid)) {
+            this.info("Bug deleted"); 
+        } else {
+            this.error("Bug NOT deleted"); 
+        }
     }
 
     //BugsFacadeRemote getter and setter method
@@ -117,4 +122,16 @@ public class BugsManagedBean implements Serializable {
         this.bugpriority = bugpriority;
     }
 
+    //Faces Context messages methods 
+    public void info(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
+    }
+
+    public void warn(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
+    }
+
+    public void error(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
+    }
 }

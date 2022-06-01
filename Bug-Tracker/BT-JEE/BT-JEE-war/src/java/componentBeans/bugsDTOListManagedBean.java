@@ -1,4 +1,4 @@
-package web;
+package componentBeans;
 
 import entity.BugsDTO;
 import java.io.Serializable;

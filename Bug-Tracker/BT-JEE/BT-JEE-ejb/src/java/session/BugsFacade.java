@@ -43,17 +43,19 @@ public class BugsFacade implements BugsFacadeRemote {
     //CRUD operations functionality exposed
     @Override
     public boolean createRecord(BugsDTO bugDTO) {
+        boolean result = false; 
         if (find(bugDTO.getBugid()) != null) {
             // user whose userid can be found
-            return false;
+            return result;
         }
         // user whose userid could not be found
         try {
             BugsDb bug = this.DTO2DAO(bugDTO);
             this.create(bug); // add to database
+            result = true;  
         } catch (Exception ex) {
         }
-        return true;
+        return result; 
     }
 
     @Override

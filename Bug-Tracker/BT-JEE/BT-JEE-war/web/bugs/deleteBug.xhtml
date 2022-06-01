@@ -15,14 +15,17 @@
         <p:divider />
 
         <h:form>
+            <p:messages >
+                <p:autoUpdate/>
+            </p:messages>
             <div class="ui-fluid p-grid">
                 <div class=" p-col-12 p-md-4">
                     <label for="bugid" class="p-text-normal">ID</label>
                     <p:inputNumber id="bugid" value="#{bugsManagedBean.bugid}" required="true"
-                                   requiredMessage="The bugid field cannot be empty!" modifyValueOnWheel="false"/>
+                                   modifyValueOnWheel="false"/>
                 </div>
             </div>
-            <p:commandButton value="Delete" action="#{bugsManagedBean.deleteBug}"/>
+            <p:commandButton value="Delete" ajax="false" validateClient="true" action="#{bugsManagedBean.deleteBug}"/>
         </h:form>
     </h:body>
 </html>
