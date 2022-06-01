@@ -6,13 +6,13 @@
       xmlns:composite="http://xmlns.jcp.org/jsf/composite/template"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Add a Member</title>
+        <title>Update Member</title>
         <h:outputStylesheet name="css/primeflex/primeflex.css"/>
     </h:head>
     <h:body>
         <composite:megaMenuComponent />
 
-        <h1 class="p-text-normal">Add a new Member</h1>
+        <h1 class="p-text-normal">Update an existing Member</h1>
         <p:divider />
 
         <h:form>
@@ -82,7 +82,7 @@
                     </p:selectOneMenu>
                 </div>
             </div>
-            <p:commandButton value="Add" ajax="false" validateClient="true" action="#{membersManagedBean.addMember}"/>
+            <p:commandButton value="Update" ajax="false" validateClient="true" action="#{membersManagedBean.updateMember()}"/>
         </h:form>
     </h:body>
 </html>

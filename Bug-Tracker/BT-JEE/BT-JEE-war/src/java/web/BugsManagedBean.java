@@ -50,7 +50,7 @@ public class BugsManagedBean implements Serializable {
                 bugstatus, bugcreatedby, bugpriority);
 
         if(bugsFacade.updateRecord(bugDTO)) {
-            this.info("Bug updated");
+            this.warn("Bug updated");
         } else {
             this.error("Bug NOT updated"); 
         }

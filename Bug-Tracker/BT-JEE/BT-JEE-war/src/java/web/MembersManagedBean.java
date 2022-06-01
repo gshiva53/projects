@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import session.MembersFacadeRemote;
 
 /**
@@ -13,29 +15,48 @@ import session.MembersFacadeRemote;
  */
 @Named(value = "membersManagedBean")
 @SessionScoped
-public class MembersManagedBean implements Serializable{
+public class MembersManagedBean implements Serializable {
 
     @EJB
     private MembersFacadeRemote membersFacade;
-    
-    private int membid; 
-    private String membname; 
-    private String membemail; 
-    private String membrole; 
-    private String membteam; 
+
+    private int membid;
+    private String membname;
+    private String membemail;
+    private String membrole;
+    private String membteam;
     private String membpassword;
-    
+
     public void addMember() {
-        MembersDTO membDTO = new MembersDTO(membid, membname, membemail, membrole, 
-        membteam, membpassword); 
-        
-        boolean result = membersFacade.createRecord(membDTO); 
-        System.out.println("New Members has been added in the system: "
-                + result
-                + "\n" + membid
-                + "\n" + membname );
+        MembersDTO membDTO = new MembersDTO(membid, membname, membemail, membrole,
+                membteam, membpassword);
+
+        if (membersFacade.createRecord(membDTO)) {
+            this.info("Member added");
+        } else {
+            this.error("Member NOT added");
+        }
+    }
+
+    public void updateMember() {
+        MembersDTO membDTO = new MembersDTO(membid, membname, membemail, membrole,
+                membteam, membpassword);
+
+        if (membersFacade.updateRecord(membDTO)) {
+            this.info("Member updated");
+        } else {
+            this.error("Member NOT updated");
+        }
     }
     
+    public void deleteMember() {
+        if (membersFacade.deleteRecord(membid)) {
+            this.warn("Member deleted");
+        } else {
+            this.error("Member NOT deleted"); 
+        }
+    }
+
     //MembersFacade getter and setter methods
     public MembersFacadeRemote getMembersFacade() {
         return membersFacade;
@@ -44,7 +65,7 @@ public class MembersManagedBean implements Serializable{
     public void setMembersFacade(MembersFacadeRemote membersFacade) {
         this.membersFacade = membersFacade;
     }
-    
+
     //Field getter and setter methods
     public int getMembid() {
         return membid;
@@ -93,8 +114,18 @@ public class MembersManagedBean implements Serializable{
     public void setMembpassword(String membpassword) {
         this.membpassword = membpassword;
     }
-    
-    public MembersManagedBean() {
+
+    //Faces Context messages methods 
+    public void info(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, message));
     }
-    
+
+    public void warn(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, message, message));
+    }
+
+    public void error(String message) {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
+    }
+
 }

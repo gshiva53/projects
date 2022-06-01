@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite/template">
+    <h:head>
+        <title>Delete a Member</title>
+        <h:outputStylesheet name="css/primeflex/primeflex.css"/>
+    </h:head>
+    <h:body>
+        <composite:megaMenuComponent />
+
+        <h1 class="p-text-normal">Delete an existing Member</h1>
+        <p:divider />
+
+        <h:form>
+            <p:messages >
+                <p:autoUpdate/>
+            </p:messages>
+            <div class="ui-fluid p-grid">
+                <div class=" p-col-12 p-md-4">
+                    <label for="membid" class="p-text-normal">ID</label>
+                    <p:inputNumber id="membid" value="#{membersManagedBean.membid}" required="true"
+                                   modifyValueOnWheel="false"/>
+                </div>
+            </div>
+            <p:commandButton value="Delete" ajax="false" 
+                             validateClient="true" action="#{membersManagedBean.deleteMember}"/>
+        </h:form>
+    </h:body>
+</html>
+
