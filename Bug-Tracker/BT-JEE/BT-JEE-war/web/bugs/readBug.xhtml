@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite/template">
 
     <h:head>
     </h:head>
 
     <h:body>
-        <h1>Bugs data table</h1>
-        <hr/>
+        <composite:megaMenuComponent />
+        <h1 class="p-text-normal">Bugs Data Table</h1>
         <h:form>
             <div class="card">
                 <p:dataTable var="bugDTO" value="#{bugsDTOListManagedBean.bugsDTOList}">

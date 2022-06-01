@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <h:body>
+        <composite:interface> 
+        </composite:interface>
+        <composite:implementation> 
+            <div class="card">
+                <h:form>
+                    <p:megaMenu orientation="horizontal" autoDisplay="true">
+                        <p:menuitem value="Home" url="/BT-JEE-war/faces/bugs/readBug.xhtml" /> 
+
+                        <p:submenu label="Bugs">
+                            <p:column>
+                                <p:submenu label="BUGS">
+                                    <p:menuitem value="Add" url="/BT-JEE-war/faces/bugs/addBug.xhtml"/>
+                                    <p:menuitem value="Read" url="/BT-JEE-war/faces/bugs/readBug.xhtml"/>
+                                    <p:menuitem value="Update"/>
+                                    <p:menuitem value="Delete"/>
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+
+                        <p:submenu label="Members">
+                            <p:column>
+                                <p:submenu label="MEMBERS">
+                                    <p:menuitem value="Add"/>
+                                    <p:menuitem value="Read"/>
+                                    <p:menuitem value="Update"/>
+                                    <p:menuitem value="Delete"/>
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+
+                        <p:menuitem value="Documentation" url="/BT-JEE-war/faces/bugs/readBug.xhtml" /> 
+                        <p:menuitem value="Settings" url="/BT-JEE-war/faces/bugs/readBug.xhtml" /> 
+                        <p:menuitem value="About" url="/BT-JEE-war/faces/bugs/readBug.xhtml" /> 
+                    </p:megaMenu>
+                </h:form>
+            </div>
+        </composite:implementation>
+    </h:body>
+</html>
