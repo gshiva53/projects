@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<web-app version="4.0" 
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -14,4 +17,53 @@
             30
         </session-timeout>
     </session-config>
+    
+    <!-- comment --> 
+    <welcome-file-list>
+        <welcome-file>faces/bugs/readBug.xhtml</welcome-file>
+    </welcome-file-list>
+    <!--    <error-page>
+        <error-code>403</error-code>
+        <location>/authFailure.xhtml</location>
+    </error-page>-->
+    <security-constraint>
+        <display-name>BT-DEVOnly</display-name>
+        <web-resource-collection>
+            <web-resource-name>DEVOnly</web-resource-name>
+            <description>DEV Only Access</description>
+            <url-pattern>/faces/bugs/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>BT-DEV</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>BT-LEADOnly</display-name>
+        <web-resource-collection>
+            <web-resource-name>LEADOnly</web-resource-name>
+            <description>LEAD Only Access</description>
+            <url-pattern>/faces/members/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>BT-LEAD</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>file</realm-name>
+        <form-login-config>
+            <form-login-page>/faces/login.xhtml</form-login-page>
+            <form-error-page>/faces/retryLogin.xhtml</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>Develoeprs who use Bug Tracker</description>
+        <role-name>BT-DEV</role-name>
+    </security-role>
+    <security-role>
+        <description>Team Leaders who use Bug Tracker</description>
+        <role-name>BT-LEAD</role-name>
+    </security-role>
 </web-app>

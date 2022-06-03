@@ -4,6 +4,8 @@ import entity.BugsDb;
 import entity.BugsDTO;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,6 +16,7 @@ import javax.persistence.PersistenceContext;
  * Refer to lab 04.
  */
 @Stateless
+@DeclareRoles({"BT-DEV, BT-LEAD"})
 public class BugsFacade implements BugsFacadeRemote {
 
     @PersistenceContext(unitName = "BT-JEE-ejbPU")
@@ -42,6 +45,7 @@ public class BugsFacade implements BugsFacadeRemote {
 
     //CRUD operations functionality exposed
     @Override
+    @RolesAllowed({"BT-DEV"})
     public boolean createRecord(BugsDTO bugDTO) {
         boolean result = false; 
         if (find(bugDTO.getBugid()) != null) {
@@ -59,6 +63,7 @@ public class BugsFacade implements BugsFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-DEV"})
     public boolean updateRecord(BugsDTO bugDTO) {
         if (find(bugDTO.getBugid()) == null) {
             return false;
@@ -73,6 +78,7 @@ public class BugsFacade implements BugsFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-DEV"})
     public boolean deleteRecord(int bugid) {
         if (find(bugid) == null) {
             return false; //bugid  does not exist in the table
@@ -86,6 +92,7 @@ public class BugsFacade implements BugsFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public BugsDTO getRecord(int bugid) {
         if (find(bugid) != null) {
             return this.DAO2DTO(find(bugid));
@@ -95,6 +102,7 @@ public class BugsFacade implements BugsFacadeRemote {
     }
     
     @Override 
+    @RolesAllowed({"BT-DEV"})
     public ArrayList<BugsDTO> getAllRecords() {
         javax.persistence.Query query;
         query = em.createNamedQuery("BugsDb.findAll");

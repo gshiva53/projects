@@ -4,6 +4,8 @@ import entity.MembersDTO;
 import entity.MembersDb;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +14,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author Shiva Gupta
  */
+@DeclareRoles({"BT-DEV, BT-LEAD"})
 @Stateless
 public class MembersFacade implements MembersFacadeRemote {
 
@@ -41,6 +44,7 @@ public class MembersFacade implements MembersFacadeRemote {
 
     //CRUD operations functionality exposed
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public boolean createRecord(MembersDTO membDTO) {
         if (find(membDTO.getMembid()) != null) {
             // member whose id can be found
@@ -56,6 +60,7 @@ public class MembersFacade implements MembersFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public boolean updateRecord(MembersDTO membDTO) {
         if (find(membDTO.getMembid()) == null) {
             return false;
@@ -70,6 +75,7 @@ public class MembersFacade implements MembersFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public boolean deleteRecord(int membid) {
         if (find(membid) == null) {
             return false; //membid  does not exist in the table
@@ -83,6 +89,7 @@ public class MembersFacade implements MembersFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public MembersDTO getRecord(int membid) {
         if (find(membid) != null) {
             return this.DAO2DTO(find(membid));
@@ -92,17 +99,18 @@ public class MembersFacade implements MembersFacadeRemote {
     }
 
     @Override
+    @RolesAllowed({"BT-LEAD"})
     public ArrayList<MembersDTO> getAllRecords() {
         javax.persistence.Query query;
         query = em.createNamedQuery("MembersDb.findAll");
         List<MembersDb> members = query.getResultList();
-        ArrayList<MembersDTO> membersDTO  = new ArrayList<>();
+        ArrayList<MembersDTO> membersDTO = new ArrayList<>();
 
         for (MembersDb member : members) {
             MembersDTO membDTO = this.DAO2DTO(member);
             membersDTO.add(membDTO);
         }
-        return membersDTO ;
+        return membersDTO;
     }
 
     //information passing between DAO and DTO 

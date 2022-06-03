@@ -9,7 +9,8 @@
         <h:outputStylesheet name="css/primeflex/primeflex.css"/>
     </h:head>
     <h:body>
-        <h:form>
+
+        <form method="post" action="j_security_check">
             <p:messages >
                 <p:autoUpdate/>
             </p:messages>
@@ -18,22 +19,24 @@
                 </div>
                 <div class="p-col-12 p-md-4">
                     <div class="p-field" style="margin: 10px">
-                        <p:outputLabel value="Username" for="username" />
-                        <p:inputText id="username" type="text" 
-                                     value="#" required="true"/>
+                        <p:outputLabel value="Username" for="j_username" />
+                        <p:inputText id="j_username" type="text" 
+                                     required="true"/>
                     </div>
                     <div class="p-field" style="margin: 10px">
-                        <p:outputLabel value="Password" for="password" />
-                        <p:password id="password" value="#" 
+                        <p:outputLabel value="Password" for="j_password" />
+                        <p:password id="j_password" 
                                     label="Password 1" required="true"/>
                     </div>
-                    <p:commandButton  ajax="false" validateClient="true" 
-                                      value="Login" />
+                    <h:form>
+                        <p:commandButton  ajax="false" validateClient="true" 
+                                          type="submit" value="Login" />
+                    </h:form>
                 </div>
                 <div class="p-col-12 p-md-4">
                 </div>
             </div>
-        </h:form>
+        </form>
     </h:body>
 </html>
 
