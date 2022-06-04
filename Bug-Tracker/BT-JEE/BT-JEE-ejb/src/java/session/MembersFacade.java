@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author Shiva Gupta
  */
-@DeclareRoles({"BT-DEV, BT-LEAD"})
+@DeclareRoles({"BT-LEAD"})
 @Stateless
 public class MembersFacade implements MembersFacadeRemote {
 

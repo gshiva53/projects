@@ -52,14 +52,14 @@
     </security-constraint>
     <login-config>
         <auth-method>FORM</auth-method>
-        <realm-name>file</realm-name>
+        <realm-name>jdbcRealm</realm-name>
         <form-login-config>
             <form-login-page>/faces/login.xhtml</form-login-page>
             <form-error-page>/faces/retryLogin.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
-        <description>Develoeprs who use Bug Tracker</description>
+        <description>Developers who use Bug Tracker</description>
         <role-name>BT-DEV</role-name>
     </security-role>
     <security-role>

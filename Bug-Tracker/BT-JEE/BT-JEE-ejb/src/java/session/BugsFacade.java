@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * Refer to lab 04.
  */
 @Stateless
-@DeclareRoles({"BT-DEV, BT-LEAD"})
+@DeclareRoles({"BT-DEV"})
 public class BugsFacade implements BugsFacadeRemote {
 
     @PersistenceContext(unitName = "BT-JEE-ejbPU")
@@ -92,7 +92,7 @@ public class BugsFacade implements BugsFacadeRemote {
     }
 
     @Override
-    @RolesAllowed({"BT-LEAD"})
+    @RolesAllowed({"BT-DEV"})
     public BugsDTO getRecord(int bugid) {
         if (find(bugid) != null) {
             return this.DAO2DTO(find(bugid));

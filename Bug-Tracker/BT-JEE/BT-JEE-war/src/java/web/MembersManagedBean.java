@@ -2,12 +2,17 @@ package web;
 
 import entity.MembersDTO;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import session.MembersFacadeRemote;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -29,7 +34,7 @@ public class MembersManagedBean implements Serializable {
 
     public void addMember() {
         MembersDTO membDTO = new MembersDTO(membid, membname, membemail, membrole,
-                membteam, membpassword);
+                membteam, stringToSHA256(membpassword));
 
         if (membersFacade.createRecord(membDTO)) {
             this.info("Member added");
@@ -40,7 +45,7 @@ public class MembersManagedBean implements Serializable {
 
     public void updateMember() {
         MembersDTO membDTO = new MembersDTO(membid, membname, membemail, membrole,
-                membteam, membpassword);
+                membteam, stringToSHA256(membpassword));
 
         if (membersFacade.updateRecord(membDTO)) {
             this.info("Member updated");
@@ -48,12 +53,12 @@ public class MembersManagedBean implements Serializable {
             this.error("Member NOT updated");
         }
     }
-    
+
     public void deleteMember() {
         if (membersFacade.deleteRecord(membid)) {
             this.warn("Member deleted");
         } else {
-            this.error("Member NOT deleted"); 
+            this.error("Member NOT deleted");
         }
     }
 
@@ -128,4 +133,31 @@ public class MembersManagedBean implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message));
     }
 
+    public String stringToSHA256(String s) {
+        String output = null;
+
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            String text = s;
+            md.update(text.getBytes("UTF-8"));
+            byte[] digest = md.digest();
+            BigInteger bigInt = new BigInteger(1, digest);
+            output = bigInt.toString(16);
+
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
+        }
+
+        return output;
+    }
+
+    public String SHA256ToString(String SHA256String) {
+        String output = null;
+
+        try {
+            output = DigestUtils.shaHex(SHA256String);
+        } catch (Exception ex) {
+        }
+
+        return output;
+    }
 }
