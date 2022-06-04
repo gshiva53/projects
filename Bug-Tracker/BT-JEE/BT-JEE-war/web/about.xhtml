@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite/template"
+      >
+    <h:head>
+        <title>Home</title>
+        <h:outputStylesheet name="css/primeflex/primeflex.css"/>
+    </h:head>
+    <h:body>
+        <composite:megaMenuComponent />
+        <h1 class="p-text-normal">About the developer</h1>
+        <p:divider/>
+        <div class="p-grid ui-fluid">
+            <div class="p-col-12 p-md-12">
+                <p class="p-text-normal">Hi, I am Shiva Gupta, student in Swinburne university of Technology. 
+                    I have developed this project for the sake of learning. This application is built
+                    using J2EE framework along with primefaces. All the data shown is sample data. 
+                </p>
+            </div>
+            <h1 class="p-text-normal">About the technology</h1>
+            <p:divider/>
+            <div class="p-col-12 p-md-12">
+                <p class="p-text-normal">
+                    The application was developed using the following technologies: 
+                    <ul>
+                        <li><p class="p-text-bold">Java Database Connectivity</p>The database used here is Derby 
+                            but the DB can be switched easily because JDBC provides that flexibility. 
+                            We just need to download the drivers for the other database and the application 
+                            would behave the same way. </li> 
+                        <li><p class="p-text-bold">DAO/DTO pattern</p>Instead of the repository pattern 
+                            we used the DAO/DTO pattern to map the database operations safely to the code.</li>
+                        <li><p class="p-text-bold">Enterprise Java Beans</p>Specifically the Stateless session beans 
+                            were used for this application, which means that the state is not saved between different users/instances.
+                            But for this application the state is saved in the database. Hence, it would not matter much if we used the
+                            stateless or the stateful beans. </li>
+                        <li><p class="p-text-bold">CDI Managed Beans</p>View Scoped managed beans were used for this 
+                            app because the bean lifecycle would be dependent on the view being used.</li>
+                        <li><p class="p-text-bold">Java Server Faces</p>JSF provides an easy way to build the front end of 
+                            a java ee application and a much easier way to connect to the managed beans. However a much powerful 
+                            UI library - primefaces was also used to make the UI look good. </li>
+                        <li><p class="p-text-bold">Primefaces</p>Primefaces is a strong and powerful UI library that 
+                            can provide themes or components that can be connected to managed beans at the back end.</li>
+                        <li><p class="p-text-bold">Composite Components</p>components like the menu bar or the data table that 
+                            are used in every page of the application can be reused across every page of the application and 
+                            this can be achieved using the composite library in JSF. The menu tab component is a reusable 
+                            component that can be used across every page in the application using only a single defined composite tag.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </h:body>
+</html>
+

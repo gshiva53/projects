@@ -20,7 +20,7 @@
     
     <!-- comment --> 
     <welcome-file-list>
-        <welcome-file>faces/bugs/readBug.xhtml</welcome-file>
+        <welcome-file>faces/home.xhtml</welcome-file>
     </welcome-file-list>
     <error-page>
         <error-code>403</error-code>
