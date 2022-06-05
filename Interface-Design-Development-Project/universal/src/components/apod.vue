@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <!-- Row 1 -->
     <div class="row">
-      <div class="col-sm-12 border text-center">
+      <div class="col-sm-12  text-center">
         <h1>{{ apodResult.title }}</h1>
       </div>
     </div>
@@ -19,14 +19,14 @@
     <div class="row">
       <!-- Row 3.1 -->
       <div class="row">
-        <div class="col-sm-4 border">
+        <div class="col-sm-4 ">
           <!-- IF the error object does not contain an error object then show the result -->
           <div v-if="apodResult">
             <h6>{{ apodResult.date }}</h6>
             <p>{{ apodResult.explanation }}</p>
           </div>
         </div>
-        <div class="col-sm-8 border">
+        <div class="col-sm-8 ">
           <div class="d-flex align-items-center">
             <div class="flex-grow-1 p-3">
               <a :href="apodResult.hdurl">

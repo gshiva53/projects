@@ -3,9 +3,9 @@
   <div class="container">
     <!-- Row 1 -->
     <div class="row">
-      <div class="col-sm-12 border">
+      <div class="col-sm-12 ">
         <div class="input-group input-group-sm mb-3 mt-2">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+          <label class="input-group-text" id="inputGroup-sizing-sm">Search</label>
           <!-- When the search input changes then call the apiFetch() function -->
           <input type="text" class="form-control" v-model.lazy="search" @change="apiFetch()" />
           <!-- If the search is not null then render spinners -->
@@ -15,8 +15,6 @@
               <span class="visually-hidden">Loading...</span>
             </button>
           </div>
-          <!-- Debug -->
-          <!-- <p>{{ search }}</p> -->
         </div>
       </div>
     </div>
@@ -26,12 +24,8 @@
       <!-- We can either take the length of the items array OR take the number of hits from metadata -->
       <div v-if="data.collection.metadata.total_hits > 0">
         <div v-for="(item, index) in data.collection.items" :key="index">
-          <!-- <strong>ITEMS:</strong> {{ item }} -->
-          <!-- <strong>ITEM DATA:</strong> {{ item.data }} -->
-          <!-- <strong>ITEM LINK:</strong> {{ item.link }} -->
           <div class="row">
             <div class="row-cols-1 g-3">
-              <!-- {{ item.links[0].href }} - {{ item.data[0].title }} : {{ item.data[0].description }} -->
               <!-- Card 1 -->
               <div class="card">
                 <img :src="item.links[0].href" class="card-img-top" alt="item.data[0].title" />
