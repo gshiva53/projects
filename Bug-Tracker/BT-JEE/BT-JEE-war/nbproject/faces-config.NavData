@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
-    <Scope Scope="Project"/>
+    <Scope Scope="Project">
+        <Node id="bugs/addBug.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="members/readMemb.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="resources/template/megaMenuComponent.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="members/addMemb.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="features.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="bugs/deleteBug.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="bugs/updateBug.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="authFailure.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="login.xhtml" x="935" y="300" zoom="true"/>
+        <Node id="members/deleteMemb.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="bugs/readBug.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="home.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="resources/template/tabMenuComponent.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="retryLogin.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="about.xhtml" x="1164" y="300" zoom="true"/>
+        <Node id="members/updateMemb.xhtml" x="650" y="150" zoom="true"/>
+    </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

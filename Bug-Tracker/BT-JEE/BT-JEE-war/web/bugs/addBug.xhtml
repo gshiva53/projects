@@ -28,14 +28,14 @@
                     <label for="bugname" class="p-text-normal">Name</label>
                     <p:inputText id="bugname" value="#{bugsManagedBean.bugname}"
                                  validatorMessage="Name: letters and alphabets are required">
-                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                        <f:validateRegex pattern="^[a-zA-Z0-9\s]+$"/>
                     </p:inputText>
                 </div>
                 <div class=" p-col-12">
                     <label for="bugdesc" class="p-text-normal">Description</label>
                     <p:inputTextarea id="bugdesc" value="#{bugsManagedBean.bugdesc}" rows="4" 
                                      validatorMessage="Description: letters and numbers are required" >
-                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                        <f:validateRegex pattern="^[a-zA-Z0-9\s]+$"/>
                     </p:inputTextarea>
                 </div>
                 <div class=" p-col-12 p-md-3">
@@ -53,7 +53,7 @@
                     <label for="bugcreatedby" class="p-text-normal">Created By</label>
                     <p:inputText id="bugcreatedby" value="#{bugsManagedBean.bugcreatedby}"
                                  validatorMessage="Created by:  letters and numbers are required" >
-                        <f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+                        <f:validateRegex pattern="^[a-zA-Z0-9\s]+$"/>
                     </p:inputText>
                 </div>
                 <div class=" p-col-12 p-md-3">
