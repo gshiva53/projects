@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent
+    IntroComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,
