@@ -7,13 +7,17 @@ import { IntroComponent } from './intro/intro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BackgroundComponent } from './background/background.component';
 import { SkillsComponent } from './skills/skills.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
+import { ExperienceComponent } from './experience/experience.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IntroComponent,
     BackgroundComponent,
-    SkillsComponent
+    SkillsComponent,
+    ExperiencesComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
