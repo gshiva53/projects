@@ -20,3 +20,45 @@
 - [ ] Contact through email section. 
 - [ ] Social Media Links
 - [ ] Profile Picture?
+
+# Linode Server Setup and Website Deployment
+## 1. Basic Server Setup
+1. SSH into the server. 
+2. Set the time zone. 
+3. Add a new user. 
+4. Add this new user to the `sudo` group. 
+5. Login using the new user, in this case, the new user is `shiva`.
+6. Delete the password for the root user. 
+7. Lock the password for the root user. 
+
+## 2. Configure Nginx
+1. Install nginx.
+2. Create a new dir at this path: `/var/www/139.144.99.189`
+3. Change the privileges of the dir so everyone can access them using `chmod`
+4. Change the owner of the dir to `shiva` using `chown`
+5. Create an nginx file. 
+6. Create a link for the config file to newly created nginx file.
+7. Restart nginx.
+
+## 3. Create a deploy shell script
+```sh
+echo "Switching to branch main"
+git checkout main
+
+echo "building app..."
+npm run build
+  
+
+echo "Deploying files to Server"
+scp -r dist/portfolio-website/* shiva@139.144.99.189:/var/www/139.144.99.189/
+
+echo "Done!"
+```
+
+
+## 4. Deploy to the server
+1. cd into git dir
+2. Run the script
+3. Navigate to the `139.144.99.189` address and the website should be up and running.
+
+
